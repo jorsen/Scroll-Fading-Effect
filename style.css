@@ -1,1 +1,8 @@
+.reveal {
+  position: relative;
+  opacity: 0;
+}
 
+.reveal.active {
+  opacity: 1;
+}
