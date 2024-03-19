@@ -1,17 +1,20 @@
 function reveal() {
   var reveals = document.querySelectorAll(".reveal");
 
-  for (var i = 0; i < reveals.length; i++) {
+  reveals.forEach(function (element) {
     var windowHeight = window.innerHeight;
-    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementTop = element.getBoundingClientRect().top;
     var elementVisible = 50;
+    var revealDelay = (elementTop / windowHeight) * 500; // Adjust the multiplier as needed
 
     if (elementTop < windowHeight - elementVisible) {
-      reveals[i].classList.add("active");
+      setTimeout(function () {
+        element.classList.add("active");
+      }, revealDelay);
     } else {
-      reveals[i].classList.remove("active");
+      element.classList.remove("active");
     }
-  }
+  });
 }
 
 // Call reveal once when the page loads
